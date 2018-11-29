@@ -1,0 +1,47 @@
+server:
+  port: 8020
+
+spring:
+  application:
+    name: framework-config
+
+  profiles:
+    active: dev
+
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/sunyanghah/frameworkConfig.git
+          search-paths: ${spring.profiles.active}
+      retry:
+        initial-interval: 3000
+        multiplier: 1.5
+        max-interval: 20000
+        max-attempts: 6
+#  security:
+#    user:
+#      name: config
+#      password: framework-config
+
+---
+spring:
+  profiles: dev
+  rabbitmq:
+    host: 47.94.159.51
+    port: 5672
+    username: guest
+    password: guest
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://47.94.159.51:8761/eureka/
+  instance:
+    prefer-ip-address: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh,health,info,bus-refresh

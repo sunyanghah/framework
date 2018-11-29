@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: framework-resource
+  profiles:
+    active: dev
+  cloud:
+    config:
+      discovery:
+        service-id: framework-config
+        enabled: true
+#      username: config
+#      password: framework-config
+      profile: ${spring.profiles.active}
+
+---
+server:
+  port: 8012
+spring:
+  profiles: dev
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+      defaultZone: http://47.94.159.51:8761/eureka/

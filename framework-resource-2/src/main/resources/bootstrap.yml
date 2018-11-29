@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: framework-resource-2
+  profiles:
+    active: dev
