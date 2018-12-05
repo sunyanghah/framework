@@ -8,7 +8,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Component;
 import org.springframework.util.AntPathMatcher;
-import sy.demo.framework.common.dto.gateway.OutResourcesDto;
+import sy.demo.framework.gateway.dto.OutResourcesDto;
 import sy.demo.framework.gateway.mapper.ResourceMapper;
 
 import javax.servlet.http.HttpServletRequest;

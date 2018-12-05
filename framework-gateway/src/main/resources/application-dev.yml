@@ -1,6 +1,12 @@
 server:
-  port: 8013
+  port: 8011
 
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://47.94.159.51:8761/eureka/
+  instance:
+    prefer-ip-address: true
 
 spring:
   datasource:
@@ -21,22 +27,52 @@ spring:
       validation-timeout: 5000
       # 指定连接数据库的超时时间
       login-timeout: 5
-  rabbitmq:
-    host: 47.94.159.51
-    port: 5672
-    username: guest
-    password: guest
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
 
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://47.94.159.51:8761/eureka/
-  instance:
-    prefer-ip-address: true
+  redis:
+    host: 47.94.159.51
+    port: 6379
+    password: 1qaz@wsx?Z
+    database: 2
+    queue.timeout: 30
+    pool.test-on-borrow: true
+    pool.test-while-idle: true
+#  cloud:
+#    # sping cloud gateway 网关配置
+#    gateway:
+#      routes:
+#        - uri: lb://framework-auth/
+#          predicates:
+#            - Path=/auth/**
+#          filters:
+#            - StripPrefix=1
+#
+#        - uri: lb://framework-resource/
+#          predicates:
+#            - Path=/resource/**
+#          filters:
+#            - StripPrefix=1
+#
+#        - uri: lb://framework-resource2/
+#          predicates:
+#            - Path=/resource2/**
+#          filters:
+#            - StripPrefix=1
+#
+#
+#      httpclient:
+#        # 链接超时时间
+#        connect-timeout: 3000
+#        # 响应超时时间 ，权衡各service之间调用时 hystrix的熔断时间。如果此时间小于hystrix的熔断时间。则报网关超时。
+#        # 大于hystrix的超时时间时，熔断，返回fallback的数据。
+#        response-timeout: 10000
 
 mybatis-plus:
   mapper-locations: classpath:/mapper/*Mapper.xml
-  typeAliasesPackage: sy.demo.framework.common.dto,sy.demo.framework.resource2.entity
+  typeAliasesPackage: sy.demo.framework.common.dto,sy.demo.framework.gateway.entity
   global-config:
     #主键类型  0:"数据库ID自增", 1:"用户输入ID",2:"全局唯一ID (数字类型唯一ID)", 3:"全局唯一ID UUID";
     id-type: 0
@@ -53,7 +89,6 @@ mybatis-plus:
     cache-enabled: true
 
 
-
 # 开启clientFallback降级
 feign:
   hystrix:
@@ -68,24 +103,24 @@ hystrix:
           enabled: true
         isolation:
           thread:
-            timeoutInMilliseconds: 8000
+            timeoutInMilliseconds: 4000
 
 #请求处理的超时时间
-ribbon.ReadTimeout: 7000
+ribbon.ReadTimeout: 10000
 #请求连接的超时时间
-ribbon.ConnectTimeout: 7000
+ribbon.ConnectTimeout: 2000
 
 
-#txmanager地址
-tm:
-  manager:
-    url: http://127.0.0.1:7000/tx/manager/
+zuul:
+  host:
+    connect-timeout-millis: 2000  # 据说采用服务发现的时候 超时采用ribbon的。这里的没用
+    socket-timeout-millis: 2000
 
-#security:
-#  oauth2:
-#    client:
-#      client-id: client
-#      client-secret: client_secret
-#    resource:
-#      id: framework-resource-2
-#      token-info-uri: http://localhost:8010/oauth/check_token
+
+security:
+  oauth2:
+    client:
+      clientId: client_gateway
+      clientSecret: client_gateway
+    resource:
+      token-info-uri: http://localhost:8010/oauth/check_token

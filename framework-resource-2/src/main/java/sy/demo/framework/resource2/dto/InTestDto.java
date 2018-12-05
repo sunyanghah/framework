@@ -1,4 +1,4 @@
-package sy.demo.framework.common.dto.resource2;
+package sy.demo.framework.resource2.dto;
 
 import lombok.Data;
 

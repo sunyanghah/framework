@@ -1,7 +1,7 @@
 package sy.demo.framework.gateway.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
-import sy.demo.framework.common.dto.gateway.OutResourcesDto;
+import sy.demo.framework.gateway.dto.OutResourcesDto;
 
 import java.util.List;
 

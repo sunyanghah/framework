@@ -1,8 +1,6 @@
-package sy.demo.framework.common.dto.gateway;
+package sy.demo.framework.gateway.dto;
 
 import lombok.Data;
-
-import java.util.List;
 
 /**
  * Created by dell on 2018/11/8.

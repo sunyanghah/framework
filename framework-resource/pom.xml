@@ -15,6 +15,7 @@
         <mybatisplus-spring-boot-starter.version>1.0.5</mybatisplus-spring-boot-starter.version>
         <mybatis-plus.version>2.1.9</mybatis-plus.version>
         <swagger2.version>2.8.0</swagger2.version>
+        <lcn.last.version>4.1.0</lcn.last.version>
     </properties>
 
     <dependencies>
@@ -98,6 +99,18 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-bus-amqp</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+            <version>4.1.12.Final</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.1991wangliang</groupId>
+            <artifactId>lorne_core</artifactId>
+            <version>1.0.0</version>
         </dependency>
 
     </dependencies>

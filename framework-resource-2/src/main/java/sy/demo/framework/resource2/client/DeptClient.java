@@ -1,4 +1,4 @@
-package sy.demo.framework.common.mutual.resource;
+package sy.demo.framework.resource2.client;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;

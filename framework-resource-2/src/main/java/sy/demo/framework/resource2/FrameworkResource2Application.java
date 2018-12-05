@@ -9,7 +9,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  * @author dell
  */
 @SpringBootApplication(scanBasePackages = {"sy.demo.framework"})
-@EnableFeignClients(basePackages = {"sy.demo.framework.common.mutual"})
+@EnableFeignClients(basePackages = {"sy.demo.framework.common.mutual","sy.demo.framework.resource2.client"})
 public class FrameworkResource2Application {
     public static void main(String[] args){
         SpringApplication.run(FrameworkResource2Application.class,args);
