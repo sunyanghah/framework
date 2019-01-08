@@ -1,6 +1,7 @@
 package sy.demo.framework.resource.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,5 +28,10 @@ public class TestController {
             e.printStackTrace();
             return RP.buildFailure("resource2 新增失败");
         }
+    }
+
+    @GetMapping("/message")
+    public RP testGet() throws Exception{
+        return RP.buildSuccess(testService.selectById(1));
     }
 }

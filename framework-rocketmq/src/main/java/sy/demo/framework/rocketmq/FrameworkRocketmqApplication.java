@@ -1,4 +1,5 @@
-package sy.demo.framework.resource2;
+package sy.demo.framework.rocketmq;
+
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,9 +10,9 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  * @author dell
  */
 @SpringBootApplication(scanBasePackages = {"sy.demo.framework"})
-@EnableFeignClients(basePackages = {"sy.demo.framework.resource2.client"})
-public class FrameworkResource2Application {
+//@EnableFeignClients(basePackages = {"sy.demo.framework.resource2.client"})
+public class FrameworkRocketmqApplication {
     public static void main(String[] args){
-        SpringApplication.run(FrameworkResource2Application.class,args);
+        SpringApplication.run(FrameworkRocketmqApplication.class,args);
     }
 }

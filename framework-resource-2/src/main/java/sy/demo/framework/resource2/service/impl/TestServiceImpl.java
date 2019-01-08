@@ -1,11 +1,11 @@
 package sy.demo.framework.resource2.service.impl;
 
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
-import com.codingapi.tx.annotation.TxTransaction;
+//import com.codingapi.tx.annotation.TxTransaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import sy.demo.framework.common.exception.BusinessException;
+//import sy.demo.framework.common.exception.BusinessException;
 import sy.demo.framework.common.platform.RP;
 import sy.demo.framework.resource2.client.TestClient;
 import sy.demo.framework.resource2.entity.Test;
@@ -31,7 +31,7 @@ public class TestServiceImpl extends ServiceImpl<TestMapper,Test> implements Tes
     private TestClient testClient;
 
 
-    @TxTransaction(isStart = true)
+//    @TxTransaction(isStart = true)
     @Transactional(rollbackFor = Exception.class)
     @Override
     public void saveTest() throws Exception{
@@ -50,7 +50,7 @@ public class TestServiceImpl extends ServiceImpl<TestMapper,Test> implements Tes
 
 
     @Transactional(rollbackFor = Exception.class)
-    @TxTransaction
+//    @TxTransaction
     @Override
     public void saveTest2() throws Exception {
         Test2 test2 = new Test2();

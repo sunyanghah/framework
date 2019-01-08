@@ -11,7 +11,7 @@ eureka:
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://47.94.159.51:3306/framework?useSSL=false&&characterEncoding=utf-8
+    url: jdbc:mysql://47.94.159.51:3306/framework?useSSL=false&&characterEncoding=utf-8&&serverTimezone=Hongkong
     username: root
     password: 1qaz@wsx?Z
     hikari:

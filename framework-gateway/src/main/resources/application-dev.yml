@@ -11,7 +11,7 @@ eureka:
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://47.94.159.51:3306/framework?useSSL=false&&characterEncoding=utf-8
+    url: jdbc:mysql://47.94.159.51:3306/framework?useSSL=false&&characterEncoding=utf-8&&serverTimezone=Hongkong
     username: root
     password: 1qaz@wsx?Z
     hikari:
@@ -72,7 +72,7 @@ spring:
 
 mybatis-plus:
   mapper-locations: classpath:/mapper/*Mapper.xml
-  typeAliasesPackage: sy.demo.framework.common.dto,sy.demo.framework.gateway.entity
+  typeAliasesPackage: sy.demo.framework.gateway.dto,sy.demo.framework.gateway.entity
   global-config:
     #主键类型  0:"数据库ID自增", 1:"用户输入ID",2:"全局唯一ID (数字类型唯一ID)", 3:"全局唯一ID UUID";
     id-type: 0

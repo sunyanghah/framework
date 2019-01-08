@@ -1,5 +1,5 @@
 server:
-  port: 8013
+  port: 8015
 
 
 spring:
@@ -21,27 +21,27 @@ spring:
       validation-timeout: 5000
       # 指定连接数据库的超时时间
       login-timeout: 5
-  rabbitmq:
-    host: 47.94.159.51
-    port: 5672
-    username: guest
-    password: guest
-    # 消息发送确认，确保消息发送到交换机
-    publisher-confirms: true
-    # 消息发送确认，确保消息到了队列，只有失败时触发
-    publisher-returns: true
-    listener:
-      simple:
-        acknowledge-mode: MANUAL
-
   redis:
-    host: 47.94.159.51
+    host: 39.96.11.112
+#    cluster:
+#      nodes: 39.105.65.204:6379
+#      max-redirects: 3
     port: 6379
-    password: 1qaz@wsx?Z
-    database: 2
+    password: ido85_123
+    database: 1
     queue.timeout: 30
     pool.test-on-borrow: true
     pool.test-while-idle: true
+rocketmq:
+  # 生产者配置
+  producer:
+    groupName: ${spring.application.name}
+    namesrvAddr: 39.96.46.94:9876;39.105.65.204:9876;39.96.11.112:9876
+    default: false
+   # 消费者配置
+  consumer:
+    groupName: ${spring.application.name}
+    namesrvAddr: 39.96.46.94:9876;39.105.65.204:9876;39.96.11.112:9876
 eureka:
   client:
     serviceUrl:
@@ -89,18 +89,3 @@ hystrix:
 ribbon.ReadTimeout: 7000
 #请求连接的超时时间
 ribbon.ConnectTimeout: 7000
-
-
-#txmanager地址
-tm:
-  manager:
-    url: http://127.0.0.1:7000/tx/manager/
-
-#security:
-#  oauth2:
-#    client:
-#      client-id: client
-#      client-secret: client_secret
-#    resource:
-#      id: framework-resource-2
-#      token-info-uri: http://localhost:8010/oauth/check_token

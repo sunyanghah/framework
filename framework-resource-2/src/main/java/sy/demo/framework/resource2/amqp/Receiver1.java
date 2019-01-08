@@ -1,6 +1,8 @@
 package sy.demo.framework.resource2.amqp;
 
+import com.rabbitmq.client.Channel;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.amqp.core.Message;
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
@@ -10,11 +12,12 @@ import org.springframework.stereotype.Component;
  */
 @Slf4j
 @Component
-@RabbitListener(queues = "hello")
 public class Receiver1 {
 
-    @RabbitHandler
-    public void handle(String msg) throws Exception{
-        log.info("------this is receiver1------{}-----------",msg);
+    @RabbitListener(queues = "hello")
+    public void handle(Message message, Channel channel) throws Exception{
+        log.info("------this is receiver1------{}-----------",new String(message.getBody()));
+//        channel.basicAck(message.getMessageProperties().getDeliveryTag(),false);
     }
+
 }

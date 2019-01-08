@@ -8,6 +8,8 @@ import sy.demo.framework.resource2.client.DeptClient;
 import sy.demo.framework.resource2.dto.InTestDto;
 import sy.demo.framework.resource2.service.TestService;
 
+import java.math.BigDecimal;
+
 /**
  * Created by dell on 2018/11/22.
  * @author dell
@@ -45,5 +47,11 @@ public class TestController {
     public RP save2() throws Exception{
         testService.saveTest2();
         return RP.buildSuccess("test2 插入成功");
+    }
+
+    public static void main(String[] args){
+        System.out.println(new BigDecimal(3.33).add(new BigDecimal(3.33)).add(new BigDecimal(3.34)).multiply(new BigDecimal(100000000000000000D)));
+        System.out.println(new BigDecimal(3.33).add(new BigDecimal(6.33)).add(new BigDecimal(0.34)).multiply(new BigDecimal(100000000000000000D)));
+        System.out.println(new BigDecimal(8.63).add(new BigDecimal(0.64)).add(new BigDecimal(0.73)).multiply(new BigDecimal(100000000000000000D)));
     }
 }
