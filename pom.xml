@@ -17,6 +17,9 @@
         <module>framework-eureka</module>
         <module>framework-config</module>
         <module>framework-rocketmq</module>
+        <module>framework-rocketmq2</module>
+        <module>framework-logcollect</module>
+        <module>framework-zipkin</module>
     </modules>
 
     <properties>

@@ -159,7 +159,7 @@ public class RedisLua5Controller {
 
 
     public static void main(String[] args) throws Exception{
-        List<Integer> red = getRandomRed(3,24,5,0);
+        List<Integer> red = getRandomRed(8,100,0,0);
 
         int sum = 0;
 
@@ -229,6 +229,9 @@ public class RedisLua5Controller {
          */
         Integer beatMax = remainMoney / remainSize * 2;
         randomMax = randomMax > beatMax ? beatMax : randomMax;
+
+        Integer beatMin = remainMoney / remainSize / 2;
+        randomMin = randomMin < beatMin ? beatMin : randomMin;
 
         return (int)Math.round((Math.random()*(randomMax-randomMin) + randomMin));
 

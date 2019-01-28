@@ -32,7 +32,7 @@ public abstract class DefaultConsumerConfigure {
         log.info(consumerConfig.toString());
 
         consumer.setNamesrvAddr(consumerConfig.getNamesrvAddr());
-
+        consumer.setConsumeMessageBatchMaxSize(3);
         consumer.subscribe("testTopic", "redGrabToDb||redMoneyToUser");
         consumer.subscribe("myTopic","testTag");
         // 开启内部类实现监听

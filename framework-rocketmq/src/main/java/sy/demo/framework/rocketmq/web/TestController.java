@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by dell on 2019/1/4.
  */
@@ -66,18 +69,21 @@ public class TestController {
 
     @GetMapping("/redMoneyToUser")
     public void redMoneyToUser(@RequestParam("data")String data) throws Exception{
+        List<String> list = new ArrayList<>();
         Message message = new Message("testTopic","redMoneyToUser","redMoneyToUser",data.getBytes());
-        producer.send(message, new SendCallback() {
-            @Override
-            public void onSuccess(SendResult sendResult) {
-                log.info("redMoneyToUser发送成功");
-            }
-
-            @Override
-            public void onException(Throwable throwable) {
-                log.info("redMoneyToUser发送失败");
-            }
-        });
+//        producer.send(message, new SendCallback() {
+//            @Override
+//            public void onSuccess(SendResult sendResult) {
+//                log.info("redMoneyToUser发送成功");
+//            }
+//
+//            @Override
+//            public void onException(Throwable throwable) {
+//                log.info("redMoneyToUser发送失败");
+//            }
+//        });
+        SendResult sendResult = producer.send(message);
+        log.info("------------{}",sendResult.getSendStatus().toString());
     }
 
     @GetMapping("/myTopic")
