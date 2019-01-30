@@ -1,5 +1,5 @@
 server:
-  port: 8017
+  port: 8019
 
 spring:
   datasource:
@@ -24,6 +24,24 @@ spring:
     encoding:
       charset: UTF-8
       enabled: true
+  rabbitmq:
+    host: 47.94.159.51
+    port: 5672
+    username: guest
+    password: guest
+    # 消息发送确认，确保消息发送到交换机
+    publisher-confirms: true
+    # 消息发送确认，确保消息到了队列，只有失败时触发
+    publisher-returns: true
+    listener:
+      simple:
+        acknowledge-mode: MANUAL
+  zipkin:
+    rabbitmq:
+      queue: zipkin
+  sleuth:
+    sampler:
+      probability: 1.0
 
 
 eureka:
@@ -35,7 +53,7 @@ eureka:
 
 mybatis-plus:
   mapper-locations: classpath:/mapper/*Mapper.xml
-  typeAliasesPackage: sy.demo.framework.rocketmq2.dto,sy.demo.framework.rocketmq2.entity
+  typeAliasesPackage: sy.demo.framework.zipkin2.dto,sy.demo.framework.zipkin2.entity
   global-config:
     #主键类型  0:"数据库ID自增", 1:"用户输入ID",2:"全局唯一ID (数字类型唯一ID)", 3:"全局唯一ID UUID";
     id-type: 0

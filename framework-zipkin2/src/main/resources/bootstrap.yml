@@ -1,5 +1,5 @@
 spring:
   application:
-    name: framework-zipkin
+    name: framework-zipkin2
   profiles:
     active: mq

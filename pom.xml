@@ -20,6 +20,7 @@
         <module>framework-rocketmq2</module>
         <module>framework-logcollect</module>
         <module>framework-zipkin</module>
+        <module>framework-zipkin2</module>
     </modules>
 
     <properties>
