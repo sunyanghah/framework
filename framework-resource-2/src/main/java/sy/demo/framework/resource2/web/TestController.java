@@ -49,6 +49,11 @@ public class TestController {
         return RP.buildSuccess("test2 插入成功");
     }
 
+    @GetMapping("/zwTest")
+    public String testZw() throws Exception{
+        return "这是中文";
+    }
+
     public static void main(String[] args){
         System.out.println(new BigDecimal(3.33).add(new BigDecimal(3.33)).add(new BigDecimal(3.34)).multiply(new BigDecimal(100000000000000000D)));
         System.out.println(new BigDecimal(3.33).add(new BigDecimal(6.33)).add(new BigDecimal(0.34)).multiply(new BigDecimal(100000000000000000D)));

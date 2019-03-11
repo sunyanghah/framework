@@ -21,6 +21,8 @@
         <module>framework-logcollect</module>
         <module>framework-zipkin</module>
         <module>framework-zipkin2</module>
+        <module>framework-exporter</module>
+        <module>framework-jenkinsK8s</module>
     </modules>
 
     <properties>

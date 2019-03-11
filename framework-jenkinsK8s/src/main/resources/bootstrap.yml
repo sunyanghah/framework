@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: framework-jenkinsK8s
+  profiles:
+    active: dev
