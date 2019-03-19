@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: framework-lcn2
+  profiles:
+    active: dev

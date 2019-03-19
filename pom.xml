@@ -23,6 +23,8 @@
         <module>framework-zipkin2</module>
         <module>framework-exporter</module>
         <module>framework-jenkinsK8s</module>
+        <module>framework-lcn1</module>
+        <module>framework-lcn2</module>
     </modules>
 
     <properties>
