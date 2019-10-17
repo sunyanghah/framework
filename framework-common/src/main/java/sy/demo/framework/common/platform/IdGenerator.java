@@ -81,6 +81,7 @@ public class IdGenerator {
         }
         lastTimestamp = timestamp;
         // ID偏移组合生成最终的ID，并返回ID
+        //机器码+进程码+单例模式+对象锁+时间戳+毫秒内序列=唯一ID
         long nextId = ((timestamp - twepoch) << timestampLeftShift) | (processId << datacenterIdShift) | (workerId << workerIdShift) | sequence;
         return nextId;
     }
@@ -103,7 +104,7 @@ public class IdGenerator {
     }
 
     /**
-     * 获取机器编码
+     * 根据网卡信息获取机器编码
      * @return
      */
     private long getMachineNum(){
